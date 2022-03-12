@@ -78,7 +78,7 @@
       <!-- GalleryTilesJustified -->
       <div
         ref="gallery"
-        class="mb-0"
+        class="-mb-8"
         v-for="row in splittedImages"
         :key="row.id"
       >
