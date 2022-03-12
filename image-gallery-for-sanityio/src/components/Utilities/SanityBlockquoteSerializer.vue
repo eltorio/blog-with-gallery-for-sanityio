@@ -8,9 +8,7 @@
       >
         &ldquo;
       </div>
-      <cite>
-        {{ blockquote }}
-      </cite>
+      <cite v-html="blockquote"> </cite>
       <div
         className="absolute right-1.5 -bottom-4 text-5xl font-serif stylistic-quote-mark"
       >
@@ -24,8 +22,24 @@
 export default {
   name: "BasicCard",
   data() {
+    let blockquote = "";
+    this.$slots.default().forEach((element) => {
+      switch (element.type) {
+        case "strong":
+          blockquote += `<b>${element.children}</b>`;
+          break;
+        case "em":
+          blockquote += `<em>${element.children}</em>`;
+          break;
+        case "mark":
+          blockquote += `<mark>${element.children}</mark>`;
+          break;
+        default:
+          blockquote += element.children;
+      }
+    });
     return {
-      blockquote: this.$slots.default()[0].children,
+      blockquote: blockquote,
     };
   },
   methods: {},
