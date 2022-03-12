@@ -3,6 +3,8 @@
 This is a simple blog working with structured datas hosted at Sanity.io.  
 It includes a way to display image galleries.  
 Blog sample deployed at : https://blog-with-gallery-for-sanityio.vercel.app/  
+All images can be clicked and show a lighbox modal.  
+All images are optimized for size and format.  
 
 # Sanity
 
@@ -35,7 +37,9 @@ npm run serve
 ```
 For production environment you may edit tailwind.config.json because I choosed to keep all Tailwindcss classes :
 ```json
- safelist: [{ pattern: /.*/ }],
+{ 
+    safelist: [{ pattern: /.*/ }]
+    }
 ```
 
 # License

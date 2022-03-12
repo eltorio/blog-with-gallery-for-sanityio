@@ -14,7 +14,14 @@
                 <img
                   class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 max-w-150-px"
                   v-if="post.image"
-                  :src="imageUrlFor(post.image).auto('format').width(150).height(150).fit('crop')"
+                  :src="
+                    imageUrlFor(post.image)
+                      .auto('format')
+                      .width(150)
+                      .height(150)
+                      .fit('crop')
+                  "
+                  @click="lightBox(post.image, $event)"
                 />
               </div>
             </div>
@@ -58,10 +65,7 @@
             <SanityBlocks :blocks="blocks" :serializers="postSerializers" />
           </div>
           <div class="text-right text-sm text-slate-400 pt-10">
-            <router-link
-              v-if="post.slug"
-              :to="`/blog/${post.slug.current}`"
-            >
+            <router-link v-if="post.slug" :to="`/blog/${post.slug.current}`">
               # {{ post.title }}
             </router-link>
           </div>
@@ -72,12 +76,14 @@
 </template>
 
 <script>
-import { defineComponent, h } from "vue";
+import { h } from "vue";
 import { SanityBlocks } from "sanity-blocks-vue-component";
 import sanityClient from "@sanity/client";
 import { sanityReplaceReferences } from "@/plugins/SanityReferenceWalker";
 import imageUrlBuilder from "@sanity/image-url";
-import GalleryCard from "@/components/Cards/GalleryCard.vue";
+import SanityGallerySerializer from "@/components/Utilities/SanityGallerySerializer.vue";
+import SanityLazyImgSerializerVue from "@/components/Utilities/SanityLazyImgSerializer.vue";
+import * as basiclightbox from "basiclightbox";
 
 const client = sanityClient({
   projectId: process.env.VUE_APP_SANITY_PROJECT_ID,
@@ -109,13 +115,8 @@ const query = `*[slug.current == $slug] {
 
 const postSerializers = {
   types: {
-    image: defineComponent({
-      props: ["asset"],
-      setup(props) {
-        return () => h("img", { src: props.asset.url, class: "inline" });
-      },
-    }),
-    gallery: GalleryCard,
+    image: SanityLazyImgSerializerVue,
+    gallery: SanityGallerySerializer,
   },
   marks: {
     mark: (props, children) => {
@@ -124,7 +125,8 @@ const postSerializers = {
     },
   },
   styles: {
-    blockquote: (props,children) => {//eslint-disable-line no-unused-vars
+    blockquote: (props, children) => {
+      //eslint-disable-line no-unused-vars
       return h("blockquote", {}, children.slots.default()[0].children);
     },
   },
@@ -161,6 +163,12 @@ export default {
     }
   },
   methods: {
+    lightBox: (image) => {
+      let url = imageBuilder.image(image).auto("format").toString();
+      basiclightbox
+        .create(`<img src="${url}" />`)
+        .show(() => console.log(`lightbox ${image.url} now visible`));
+    },
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
