@@ -1,7 +1,7 @@
 <template>
   <section v-if="post" class="relative py-16 bg-slate-200">
     <div
-      class="container -mt-60 mx-auto px-4"
+      class="container mx-auto px-4"
       :class="indexPosts < nbPosts - 1 ? 'mb-32' : ''"
     >
       <div

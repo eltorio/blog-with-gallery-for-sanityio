@@ -1,6 +1,7 @@
 # Sanity Caroussel Image Gallery
 
-This is a work in progress element for our image gallery
+This is a work in progress element for our image gallery  
+Blog sample deployed at : https://blog-with-gallery-for-sanityio.vercel.app/
 
 # Schema
 

@@ -1,7 +1,8 @@
 # Simple blog with Vue3, Tailwindcss 3, Sanity.io
 
 This is a simple blog working with structured datas hosted at Sanity.io.  
-It includes a way to display image galleries.
+It includes a way to display image galleries.  
+Blog sample deployed at : https://blog-with-gallery-for-sanityio.vercel.app/  
 
 # Sanity
 
@@ -32,3 +33,7 @@ cd image-gallery-for-sanityio
 npm i
 npm run serve
 ```
+
+# License
+
+As usual: provided «as is» under MIT license. 
