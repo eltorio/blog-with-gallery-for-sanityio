@@ -13,6 +13,7 @@
         Font Awesome 6 <i class="fa-solid fa-font-awesome"></i>
       </h1>
     </div>
+    <div>
         <CardSinglePost
           ref="card_single_post"
           :lazy="false"
@@ -20,7 +21,7 @@
           :nbPosts="1"
           :indexPosts="0"
         />
-
+    </div>
     <basic-card :msg="`Hello Vue ${this.$.appContext.app.version} in CodeSandbox!`" />
   </div>
 </template>
