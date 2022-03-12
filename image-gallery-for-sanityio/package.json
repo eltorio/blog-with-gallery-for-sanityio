@@ -1,0 +1,54 @@
+{
+  "name": "wip-image-gallery-for-sanityio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --port 8788",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@sanity/client": "3.2.0",
+    "@sanity/image-url": "1.0.1",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "core-js": "^3.21.1",
+    "sanity-blocks-vue-component": "1.0.1",
+    "vue-agile":"^2.0.0",
+    "vue": "^3.2.31",
+    "walkjs": "3.2.4",
+    "basiclightbox":"^5.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.17.0",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "@vue/cli-plugin-eslint": "^5.0.1",
+    "@vue/cli-service": "^5.0.1",
+    "autoprefixer": "^10.4.2",
+    "eslint-plugin-vue": "^8.5.0",
+    "eslint": "^8.10.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": ["plugin:vue/essential", "eslint:recommended"],
+    "rules": {},
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "keywords": [],
+  "description": ""
+}
