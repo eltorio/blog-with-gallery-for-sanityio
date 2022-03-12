@@ -82,7 +82,7 @@ import sanityClient from "@sanity/client";
 import { sanityReplaceReferences } from "@/plugins/SanityReferenceWalker";
 import imageUrlBuilder from "@sanity/image-url";
 import SanityGallerySerializer from "@/components/Utilities/SanityGallerySerializer.vue";
-import SanityLazyImgSerializerVue from "@/components/Utilities/SanityLazyImgSerializer.vue";
+import SanityLazyImgSerializer from "@/components/Utilities/SanityLazyImgSerializer.vue";
 import * as basiclightbox from "basiclightbox";
 
 const client = sanityClient({
@@ -115,7 +115,7 @@ const query = `*[slug.current == $slug] {
 
 const postSerializers = {
   types: {
-    image: SanityLazyImgSerializerVue,
+    image: SanityLazyImgSerializer,
     gallery: SanityGallerySerializer,
   },
   marks: {
