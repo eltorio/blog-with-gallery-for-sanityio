@@ -42,6 +42,15 @@ For production environment you may edit tailwind.config.json because I choosed t
     }
 ```
 
+# Usage
+
+In the sanity studio usually deployed at http://localhost:3333 you can create some posts with images:
+<img width="400" alt="Capture d’écran 2022-03-12 à 16 28 43" src="https://user-images.githubusercontent.com/6966689/158024342-f678df31-4ae3-4b33-8cbb-217ca3884e42.png">
+<img width="400" alt="Capture d’écran 2022-03-12 à 16 29 03" src="https://user-images.githubusercontent.com/6966689/158024351-f67f4245-857b-48be-b582-d7ed707e7835.png">
+<img width="400" alt="Capture d’écran 2022-03-12 à 16 28 29" src="https://user-images.githubusercontent.com/6966689/158024359-0ca84a2d-72a0-4a00-8dff-cbfd4f80a92d.png">
+<img width="325" alt="Capture d’écran 2022-03-12 à 16 28 14" src="https://user-images.githubusercontent.com/6966689/158024365-69908a87-d737-465f-88bf-0d0319377fe8.png">
+
+
 # License
 
 As usual: provided «as is» under MIT license. 
