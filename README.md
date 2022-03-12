@@ -33,6 +33,10 @@ cd image-gallery-for-sanityio
 npm i
 npm run serve
 ```
+For production environment you may edit tailwind.config.json because I choosed to keep all Tailwindcss classes :
+```json
+ safelist: [{ pattern: /.*/ }],
+```
 
 # License
 

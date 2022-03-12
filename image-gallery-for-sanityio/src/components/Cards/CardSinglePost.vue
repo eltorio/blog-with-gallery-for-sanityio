@@ -1,7 +1,7 @@
 <template>
-  <section v-if="post" class="relative py-16 bg-slate-200">
+  <section v-if="post" class="relative bg-slate-200">
     <div
-      class="container mx-auto px-4"
+      class="min-w-[100vh] container mx-auto px-4"
       :class="indexPosts < nbPosts - 1 ? 'mb-32' : ''"
     >
       <div
@@ -60,7 +60,7 @@
           <div class="text-right text-sm text-slate-400 pt-10">
             <router-link
               v-if="post.slug"
-              :to="`/sanity-blog/${post.slug.current}`"
+              :to="`/blog/${post.slug.current}`"
             >
               # {{ post.title }}
             </router-link>

@@ -14,7 +14,7 @@
           class="slide"
           :class="`slide--${index}`"
         >
-          <img :src="imageUrlFor(image).auto('format')" @click="lightBox(image,$event)" />
+          <img :src="imageUrlFor(image).auto('format').width(1200).fit('crop').toString()" @click="lightBox(image,$event)" />
         </div>
       </vue-agile>
       <vue-agile
@@ -30,7 +30,7 @@
           @click="$refs.thumbnails.goTo(index)"
         >
           <img
-            :src="iimageUrlFor(image).width(200).height(200).fit('crop').auto('format')"
+            :src="imageUrlFor(image).width(200).height(200).fit('crop').auto('format').toString()"
             class="sm:aspect-square sm:object-cover sm:mx-auto"
           />
         </div>
@@ -57,8 +57,8 @@
       >
         <lazy-img
           class="aspect-square object-cover mx-auto"
-          :src="imageUrlFor(image).auto('format').width(400).height(400).fit('crop')"
-          :src-placeholder="imageUrlFor(image).auto('format').width(400).height(400).fit('crop').quality(5)"
+          :src="imageUrlFor(image).auto('format').width(400).height(400).fit('crop').toString()"
+          :src-placeholder="imageUrlFor(image).auto('format').width(400).height(400).fit('crop').quality(5).toString()"
           @click="lightBox(image,$event)"
           @load="lazyImgLoad(image.asset.url, $event)"
         />
@@ -68,7 +68,9 @@
     <div v-if="display === 'stacked'" class="flex-col">
       <!-- GalleryStacked -->
       <div v-for="image in images" :key="image._key">
-        <lazy-img :src="imageUrlFor(image).auto('format')" class="mx-auto" @click="lightBox(image,$event)" />
+        <lazy-img :src="imageUrlFor(image).auto('format').toString()" class="mx-auto" @click="lightBox(image,$event)" 
+        :src-placeholder="imageUrlFor(image).auto('format').quality(5).toString()"
+        @load="lazyImgLoad(image.asset.url, $event)"/>
       </div>
       <!-- /GalleryStacked -->
     </div>
@@ -103,7 +105,9 @@
             <lazy-img
               ref="gallery-row-image"
               class="absolute block left-0 top-O w-full h-full"
-              :src="imageUrlFor(img).auto('format')"
+              :src="imageUrlFor(img).width(Math.round(1200 * img.asset.metadata.dimensions.aspectRatio /row.sumAspectRatio)).auto('format').toString()"
+              :src-placeholder="imageUrlFor(img).width(Math.round(1200 * img.asset.metadata.dimensions.aspectRatio /row.sumAspectRatio)).auto('format').quality(5).toString()"
+              @load="lazyImgLoad(img.asset.url, $event)"
               @click="lightBox(img,$event)"
             />
           </div>
