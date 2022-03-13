@@ -8,6 +8,10 @@ export default {
       type: String,
       required: true
     },
+    alt: {
+      type: String,
+      default: ''
+    },
     srcPlaceholder: {
       type: String,
       default:
@@ -80,6 +84,7 @@ export default {
       const img = h("img", {
         ref: root,
         src: srcImage.value,
+        alt: props.alt,
         srcset: srcsetImage.value || null, // set to null explicitly if falsy
         ...attrs,
         class: [
