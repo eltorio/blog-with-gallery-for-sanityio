@@ -84,7 +84,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import SanityGallerySerializer from "@/components/Utilities/SanityGallerySerializer.vue";
 import SanityLazyImgSerializer from "@/components/Utilities/SanityLazyImgSerializer.vue";
 import * as basiclightbox from "basiclightbox";
-import SanityBlockquoteSerializerVue from '@/components/Utilities/SanityBlockquoteSerializer.vue';
+import SanityBlockquoteSerializer from '@/components/Utilities/SanityBlockquoteSerializer.vue';
 
 const client = sanityClient({
   projectId: process.env.VUE_APP_SANITY_PROJECT_ID,
@@ -123,13 +123,13 @@ const postSerializers = {
     mark: (props, children) => {
       return h("mark", children[0]);
     },
-    underlined: (props, children) => {
+    underlined: (props, children) => { //eslint-diable-line no-unused-vars
       return h("span", { class: "underline" }, children[0]);
     },
-    barred: (props, children) => {
+    barred: (props, children) => { //eslint-diable-line no-unused-vars
       return h("span", { class: "line-through" }, children[0]);
     },
-    overlined: (props, children) => {
+    overlined: (props, children) => { //eslint-diable-line no-unused-vars
       return h("span", { class: "overline" }, children[0]);
     },
   },

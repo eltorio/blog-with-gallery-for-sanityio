@@ -24,6 +24,7 @@ export default {
   data() {
     let blockquote = "";
     this.$slots.default().forEach((element) => {
+      debugger; //eslint-disable-line no-debugger
       switch (element.type) {
         case "strong":
           blockquote += `<b>${element.children}</b>`;
@@ -34,14 +35,8 @@ export default {
         case "mark":
           blockquote += `<mark>${element.children}</mark>`;
           break;
-        case "underlined":
-          blockquote += `<span class='underline'>${element.children}</span>`;
-          break;
-        case "barred":
-          blockquote += `<span class='line-through'>${element.children}</span>`;
-          break;
-        case "overlined":
-          blockquote += `<span class='overline'>${element.children}</span>`;
+        case "span":
+          blockquote += `<span class='${element.props.class}'>${element.children}</span>`;
           break;
         default:
           blockquote += element.children;
