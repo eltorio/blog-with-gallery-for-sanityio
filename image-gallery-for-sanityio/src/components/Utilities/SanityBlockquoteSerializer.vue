@@ -24,7 +24,6 @@ export default {
   data() {
     let blockquote = "";
     this.$slots.default().forEach((element) => {
-      debugger; //eslint-disable-line no-debugger
       switch (element.type) {
         case "strong":
           blockquote += `<b>${element.children}</b>`;
