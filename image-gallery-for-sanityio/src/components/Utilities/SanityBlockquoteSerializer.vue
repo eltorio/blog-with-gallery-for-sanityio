@@ -34,6 +34,15 @@ export default {
         case "mark":
           blockquote += `<mark>${element.children}</mark>`;
           break;
+        case "underlined":
+          blockquote += `<span class='underline'>${element.children}</span>`;
+          break;
+        case "barred":
+          blockquote += `<span class='line-through'>${element.children}</span>`;
+          break;
+        case "overlined":
+          blockquote += `<span class='overline'>${element.children}</span>`;
+          break;
         default:
           blockquote += element.children;
       }
