@@ -28,6 +28,14 @@ VUE_APP_SANITY_DATASET = "YOUR DATSET NAME"
 VUE_APP_SANITY_READ_TOKEN = "OPTIONAL READ TOKEN"
 VUE_APP_SANITY_VERSION = "2021-10-21"
 ```
+
+* If you include a read token all the drafts will be visible 
+* you can restrict the queries link by modifying the GROQ queries
+
+```javascript
+const query = `*[_type == "post" && !(_id in path('drafts.**'))]`
+```
+
 Running with:
 ```bash
 npm install -g @vue/cli
@@ -38,7 +46,7 @@ npm run serve
 For production environment you may edit tailwind.config.json because I choosed to keep all Tailwindcss classes :
 ```json
 { 
-    safelist: [{ pattern: /.*/ }]
+    "safelist": [{ "pattern": /.*/ }]
     }
 ```
 
