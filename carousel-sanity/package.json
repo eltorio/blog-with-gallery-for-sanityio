@@ -25,9 +25,10 @@
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
+    "sanity-plugin-media": "^1.4.4",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@sanity/cli":"~2.28.0"
+    "@sanity/cli": "~2.28.0"
   }
 }
